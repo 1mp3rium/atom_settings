@@ -1,1 +1,1 @@
-atom_settings
+# This repo contains all of favourite settings for Atom text editor.
