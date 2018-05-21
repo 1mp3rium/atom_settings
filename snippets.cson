@@ -20,27 +20,79 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
+# ================= PYTHON =====================================================
 '.source.python':
-  'print statement':
+  'print statement': # log
     'prefix': 'log'
     'body':'print(${1:"your message here!"})'
 
-  'dot self':
+  'dot self': # .
     'prefix': '.'
     'body': 'self.'
 
-  'import numpy':
+  'from blah import blah': #frim
+    'prefix':'frim'
+    'body':'from ${1:blah} import ${2:blah}'
+
+  'import numpy': #imnp
     'prefix': 'imnp'
     'body': 'import numpy as np'
 
-  'import scipy':
+  'import scipy': #imsp
     'prefix': 'imsp'
     'body': 'import scipy as sp'
 
-  'import matplotlib':
+  'import matplotlib': #impl
     'prefix': 'impl'
     'body':'import matplotlib as mpl'
 
-  'import pandas':
+  'import pandas': #impd
     'prefix':'impd'
     'body': 'import pandas as pd'
+
+  'function def': #defff
+    'prefix':'defff'
+    'body':'def ${1:function}(${2:inputs}):\n
+            \t$3\n
+            \treturn'
+# -------------------------------------------- DJANGO
+  'django import httpResponse': #imhttp
+    'prefix':'imhttp'
+    'body':'from django.http import HttpResponse'
+
+  'django import include':  #iminclude
+    'prefix': 'iminclude'
+    'body': 'from django.urls import include'
+
+  'django import url': #impath
+    'prefix':'imurl'
+    'body':'from django.urls import path'
+
+  'path template': #pathtemp
+    'prefix':'pathtemp'
+    'body': "path('${1:index/}',${2:call_the_view}, name='${3:name}'),"
+
+  'templates directory': #tempdir
+    'prefix':'tempdir'
+    'body':'TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")'
+
+  'static directory': #statdir
+    'prefix':'statdir'
+    'body':'STATIC_DIR = os.path.join(BASE_DIR, "static")'
+
+  'rendr function template': #rendertemp
+    'prefix':'rendertemp'
+    'body':"render(${1:request}, '${2:app_name}/${3:index}.html', context=${4:your_dictionary})"
+
+  'static files dir': #statfiles
+    'prefix':'statfiles'
+    'body':'STATICFILES_DIRS = [\n
+            \tSTATIC_DIR,\n
+            ]'
+
+
+#================== HTML =======================================================
+'.text.html':
+  'load static': # statload
+    'prefix':'statload'
+    'body':'{% load staticfiles %}'
